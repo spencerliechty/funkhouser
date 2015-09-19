@@ -27,11 +27,13 @@ If so inclined, at this point, you could dig into containerizing the
 different subcomponents (front-end, API, db/persistence layer) using
 something like Docker. But I don't want to do that, yet.
 
+
 Next steps:
 write ansible playbook to install the following on the guest system:
-1) front-end toolchain
-2) API toolchain
-3) DB
+
+1. front-end toolchain
+2. API toolchain
+3. DB
 
 
 
