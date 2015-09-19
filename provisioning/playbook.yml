@@ -12,5 +12,7 @@
       npm: path=/vagrant/
     - name: Install tmux
       apt: name=tmux state=latest
-    - name: copy tmux conf
-      copy: src=/vagrant/provisioning/.tmux.conf dest=/home/vagrant/.tmux.conf owner=vagrant group=foo mode=0644
+    - name: copy bash profile
+      copy: src=/vagrant/provisioning/.bash_profile dest=/home/vagrant/.bash_profile owner=vagrant group=vagrant mode=0644
+    - name: install tmuxinator
+      gem: name=tmuxinator state=latest
