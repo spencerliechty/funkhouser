@@ -6,6 +6,8 @@
       apt: update_cache=yes
     - name: install nodejs
       apt: name=nodejs state=latest
+    - name: install nodejs-legacy because everything is terrible
+      apt: name=nodejs-legacy state=latest
     - name: install npm
       apt: name=npm state=latest
     - name: Install npm packages from packages.json
@@ -13,6 +15,8 @@
     - name: Install tmux
       apt: name=tmux state=latest
     - name: copy bash profile
-      command : cp /vagrant/provisioning/.bash_profile /home/vagrant/.bash_profile
+      command : cp /vagrant/provisioning/.bash_profile /home/vagrant/.bash_profile creates=/home/vagrant/.bash_profile
+    - name: make bash profile owned by vagrant
+      command: chown vagrant:vagrant .bash_profile
     - name: install tmuxinator
       gem: name=tmuxinator state=latest
