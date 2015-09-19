@@ -12,3 +12,5 @@
       npm: path=/vagrant/
     - name: Install tmux
       apt: name=tmux state=latest
+    - name: copy tmux conf
+      copy: src=/vagrant/provisioning/.tmux.conf dest=/home/vagrant/.tmux.conf owner=vagrant group=foo mode=0644
