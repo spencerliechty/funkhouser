@@ -5,3 +5,5 @@ stty intr ^X
 shopt -s histappend
 HISTSIZE=10000
 export PATH=/usr/local/bin:$PATH
+export EDITOR='vim'
+source ~/.bin/tmuxinator.bash

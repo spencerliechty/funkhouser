@@ -18,5 +18,11 @@
       command : cp /vagrant/provisioning/.bash_profile /home/vagrant/.bash_profile creates=/home/vagrant/.bash_profile
     - name: make bash profile owned by vagrant
       command: chown vagrant:vagrant .bash_profile
+    - name: create .bin dir
+      file: path=/home/vagrant/.bin state=directory mode=0755 owner=vagrant group=vagrant
+    - name: copy bash tmux completion
+      command : cp /vagrant/provisioning/tmuxinator.bash /home/vagrant/.bin/tmuxinator.bash creates=/home/vagrant/.bin/tmuxinator.bash
+    - name: make bash profile owned by vagrant
+      command: chown vagrant:vagrant .bin/tmuxinator.bash
     - name: install tmuxinator
       gem: name=tmuxinator state=latest
