@@ -12,6 +12,8 @@
       apt: name=npm state=latest
     - name: Install tmux
       apt: name=tmux state=latest
+    - name: install tmuxinator
+      shell: sudo gem install tmuxinator
 
 
 - hosts: all
@@ -19,11 +21,11 @@
   tasks:
     - name: Install npm packages from packages.json
       npm: path=/vagrant/
-    - name: install tmuxinator
-      gem: name=tmuxinator state=latest
     - name: copy bash profile
       command : cp /vagrant/provisioning/.bash_profile /home/vagrant/.bash_profile creates=/home/vagrant/.bash_profile
     - name: create .bin dir
       file: path=/home/vagrant/.bin state=directory mode=0755 owner=vagrant group=vagrant
     - name: copy bash tmux completion
       command : cp /vagrant/provisioning/tmuxinator.bash /home/vagrant/.bin/tmuxinator.bash creates=/home/vagrant/.bin/tmuxinator.bash
+    - name: copy bash tmux completion
+      command : cp -R /vagrant/provisioning/.tmuxinator /home/vagrant/ creates=/home/vagrant/.tmuxinator/dev.yml

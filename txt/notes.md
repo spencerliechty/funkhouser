@@ -45,3 +45,5 @@ starter pack, webserver 2
 install tmux, so the webserver (and api, and db, eventually) can be 
 run in a persistent tmux session... still working on this
 also working on moving .bash_profile into ~/.bash_profile
+moved tmuxinator.bash into ~/.bin for completion
+
