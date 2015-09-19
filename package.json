@@ -2,9 +2,6 @@
 "name": "funkhouser",
 "version": "0.0.1",
 "description": "TODO",
-"bin": {
-	"module-name": "./bin/funkhouser"
-},
 "scripts": {
 	"test": "echo 666"
 },
@@ -38,9 +35,5 @@
 },
 "keywords": [
 	"funkhouser"
-],
-"dependencies": {
-},
-"devDependencies": {
-}
+]
 }
