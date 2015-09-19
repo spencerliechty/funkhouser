@@ -1,22 +1,22 @@
 ---
 - hosts: all
-  remote_user: vagrant
+  sudo: true
   tasks:
     - name: update apt cache
       apt: update_cache=yes
-      become_method: sudo
     - name: install nodejs
       apt: name=nodejs state=latest
-      become_method: sudo
     - name: install nodejs-legacy because everything is terrible
       apt: name=nodejs-legacy state=latest
-      become_method: sudo
     - name: install npm
       apt: name=npm state=latest
-      become_method: sudo
     - name: Install tmux
       apt: name=tmux state=latest
-      become_method: sudo
+
+
+- hosts: all
+  remote_user: vagrant
+  tasks:
     - name: Install npm packages from packages.json
       npm: path=/vagrant/
     - name: install tmuxinator
