@@ -9,4 +9,4 @@
     - name: install npm
       apt: name=npm state=present
     - name: Install npm packages from packages.json
-      npm: path=/Vagrant/
+      npm: path=/vagrant/
