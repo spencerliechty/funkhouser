@@ -5,8 +5,10 @@
     - name: update apt cache
       apt: update_cache=yes
     - name: install nodejs
-      apt: name=nodejs state=present
+      apt: name=nodejs state=latest
     - name: install npm
-      apt: name=npm state=present
+      apt: name=npm state=latest
     - name: Install npm packages from packages.json
       npm: path=/vagrant/
+    - name: Install tmux
+      apt: name=tmux state=latest

@@ -39,5 +39,8 @@ write ansible playbook to install the following on the guest system:
 ## Front-end toolchain
 https://github.com/omniscientjs/omniscient-starter-pack
 basically set up a package.json, and some hot-loader shit from the
-starter pack
+starter pack, webserver 2
 
+## TMUXer MFer
+install tmux, so the webserver (and api, and db, eventually) can be 
+run in a persistent tmux session
