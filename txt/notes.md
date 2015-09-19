@@ -36,4 +36,8 @@ write ansible playbook to install the following on the guest system:
 3. DB
 
 
+## Front-end toolchain
+https://github.com/omniscientjs/omniscient-starter-pack
+basically set up a package.json, and some hot-loader shit from the
+starter pack
 
