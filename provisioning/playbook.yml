@@ -1,28 +1,29 @@
 ---
 - hosts: all
-  sudo: true
+  remote_user: vagrant
   tasks:
     - name: update apt cache
       apt: update_cache=yes
+      become_method: sudo
     - name: install nodejs
       apt: name=nodejs state=latest
+      become_method: sudo
     - name: install nodejs-legacy because everything is terrible
       apt: name=nodejs-legacy state=latest
+      become_method: sudo
     - name: install npm
       apt: name=npm state=latest
-    - name: Install npm packages from packages.json
-      npm: path=/vagrant/
+      become_method: sudo
     - name: Install tmux
       apt: name=tmux state=latest
+      become_method: sudo
+    - name: Install npm packages from packages.json
+      npm: path=/vagrant/
+    - name: install tmuxinator
+      gem: name=tmuxinator state=latest
     - name: copy bash profile
       command : cp /vagrant/provisioning/.bash_profile /home/vagrant/.bash_profile creates=/home/vagrant/.bash_profile
-    - name: make bash profile owned by vagrant
-      command: chown vagrant:vagrant .bash_profile
     - name: create .bin dir
       file: path=/home/vagrant/.bin state=directory mode=0755 owner=vagrant group=vagrant
     - name: copy bash tmux completion
       command : cp /vagrant/provisioning/tmuxinator.bash /home/vagrant/.bin/tmuxinator.bash creates=/home/vagrant/.bin/tmuxinator.bash
-    - name: make bash profile owned by vagrant
-      command: chown vagrant:vagrant .bin/tmuxinator.bash
-    - name: install tmuxinator
-      gem: name=tmuxinator state=latest
